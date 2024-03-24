@@ -39,9 +39,34 @@ Now we need to create docker-compose.yml
 <br>**docker-compose up -d** -> running containers
 <br>**docker ps -a** -> checking all containers
 
-    
+Here when I wanted to check my Grafana and InfluxDB in browser 
+
+Grafana: http://Public_IPv4_address:3000
+InfluxDB: http://Public_IPv4_address:8086
+
+I cannot connect for like a 1h. Everything indicates that everything its ok but still cannot access them. So in security group I deleted all inbound rules and added them one more time, first choosing my ip and then choosing 0.0.0.0/0... it works now, not sure why.
+
+<br>**Installing Telegraf**
+<br>**sudo apt install telegraf**
+
+Configure Telegraf so he send data to InfluxDB
+
+<br>**cd /etc/telegraf**
+<br>**vim telegraf.config**
+
+Go down and find OUTPUT PLUGINS and uncomment this tow lines and put public IP from AWS in the url 
+
+![image](https://github.com/jeti20/TelegrafAgent-InfluxDB-Grafana/assets/61649661/c2748309-cf21-4e84-b08a-68720200f1c9)
+
+<br>**sudo service telegraf start**
+<br>**sudo journalctl -f -u telegraf.service**
+
+Cannot create database for telegeraf not sure why
+<br>"telegraf[2304]: 2024-03-24T19:52:55Z W! [outputs.influxdb] When writing to [http://MyIP:8086]: database "telegraf" creation failed: 401 Unauthorized"
+<br>[outputs.influxdb] E! [outputs.influxdb] Failed to write metric (will be dropped: 401 Unauthorized):
+
 
 Sources for this projects:
-https://www.youtube.com/watch?v=3G1RsUgJNg0
-https://www.youtube.com/watch?v=Wh5Ub94iseE
-https://www.youtube.com/watch?v=5ZE92U47hvg
+<br>https://www.youtube.com/watch?v=3G1RsUgJNg0
+<br>https://www.youtube.com/watch?v=Wh5Ub94iseE
+<br>https://www.youtube.com/watch?v=5ZE92U47hvg
