@@ -87,7 +87,3 @@ I went to myip:8086 created project, choose Telegraf, set up configuration and f
 but after the export I cannot see the exported token anywhere, I checked /.bashrc, /etc/environment not sure why it is not added there. 
 <br> I'm doing this for the first time so I'm not sure if it is problem with this token or maybe with permissions, not sure, I spend 2 days on this and dont know what to do next.
 
-Sources for this projects:
-<br>https://www.youtube.com/watch?v=3G1RsUgJNg0
-<br>https://www.youtube.com/watch?v=Wh5Ub94iseE
-<br>https://www.youtube.com/watch?v=5ZE92U47hvg
