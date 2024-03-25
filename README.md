@@ -73,6 +73,20 @@ Cannot create database for telegeraf not sure why
 <br>[outputs.influxdb] E! [outputs.influxdb] Failed to write metric (will be dropped: 401 Unauthorized):
 
 
+niestety w momencie włączenia Telegrafa spotykam się z problemem. Po wpisaniu "sudo journalctl -f -u telegraf.service" dostaje informację, że
+
+Unfortunately, when I turn on Telegraf, I encounter a problem. After entering "sudo journalctl -f -u telegraf.service" I get the information that
+
+telegraf[2304]: 2024-03-24T19:52:55Z W! [outputs.influxdb] When writing to [http://MyIP:8086]: database "telegraf" creation failed: 401 Unauthorized
+[outputs.influxdb] E! [outputs.influxdb] Failed to write metric (will be dropped: 401 Unauthorized):
+
+I went to myip:8086 created project, choose Telegraf, set up configuration and followed the instruction
+
+![image](https://github.com/jeti20/Docker-InfluxDB-Grafana.Telegraf/assets/61649661/08876678-ced9-4e17-845d-227965712f52)
+
+but after the export I cannot see the exported token anywhere, I checked /.bashrc, /etc/environment not sure why it is not added there. 
+<br> I'm doing this for the first time so I'm not sure if it is problem with this token or maybe with permissions, not sure, I spend 2 days on this and dont know what to do next.
+
 Sources for this projects:
 <br>https://www.youtube.com/watch?v=3G1RsUgJNg0
 <br>https://www.youtube.com/watch?v=Wh5Ub94iseE
