@@ -9,7 +9,8 @@ My suggestion of the architecture
 
 Start with creating EC2 Instance with Ubuntu. On purpose of this project I used the free tier options. Set up security group.
 
-![image](https://github.com/jeti20/TelegrafAgent-InfluxDB-Grafana/assets/61649661/51ee05c0-4e40-42e1-aacd-e0a181decd0a)
+![image](https://github.com/jeti20/Docker-InfluxDB-Grafana.Telegraf/assets/61649661/c6b5dba7-a09e-40a9-b7d6-5cc50051218f)
+
 
 Port 22(SSH) and 3000 (Grafana) and 8086 (InfluxDB) should be accessable.
 
