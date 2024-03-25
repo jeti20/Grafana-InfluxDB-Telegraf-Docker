@@ -3,7 +3,8 @@ A project showing how to create an example monitoring using EC2 instances on AWS
 
 My suggestion of the architecture
 
-![image](https://github.com/jeti20/Docker-InfluxDB-Grafana.Telegraf/assets/61649661/79e1ee29-fc7b-463b-9290-56d73f571fed)
+![image](https://github.com/jeti20/Docker-InfluxDB-Grafana.Telegraf/assets/61649661/c36d7ac2-15c8-4557-ac0f-e69d69d130c8)
+
 
 
 Start with creating EC2 Instance with Ubuntu. On purpose of this project I used the free tier options. Set up security group.
@@ -46,8 +47,8 @@ Now we need to create docker-compose.yml
 
 Here when I wanted to check my Grafana and InfluxDB in browser 
 
-Grafana: http://Public_IPv4_address:3000
-InfluxDB: http://Public_IPv4_address:8086
+<br>Grafana: http://Public_IPv4_address:3000
+<br>InfluxDB: http://Public_IPv4_address:8086
 
 I cannot connect for like a 1h. Everything indicates that everything its ok but still cannot access them. So in security group I deleted all inbound rules and added them one more time, first choosing my ip and then choosing 0.0.0.0/0... it works now, not sure why.
 
