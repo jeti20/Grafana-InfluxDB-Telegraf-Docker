@@ -20,7 +20,7 @@ If you established connection with your machine type
 
 <br>**sudo apt-get update**
 <br>**sudo apt install docker.io -y**
-<br>**sudo apt instal docker-compose**
+<br>**sudo apt install docker-compose**
 <br>**sudo service docker start**
 <br>**sudo systemctl status docke**r - checking if docker is running
 <br>**sudo usermod -aG docker ubuntu** - Addind ubuntu user do Docker group so I can execute command without sudo all the time. Now if u write for example "docker info" or "docker --version" you still will get "permission denied...". (not sure if there will be this issue with docker --version)
@@ -36,8 +36,8 @@ Now We have to perform "Port binding" in docker container
 
 If we wish to have persisting data once we bring down our container, we need to specify the docker volumes using volume option for InfluxDB & Grafana container. We can gice any name to the volumes. Let's name them influxdb-volume and grafna volume respectively.
 
-<br>**docker volume create influxdb-volume**
-<br>**docker volume create grafana-volume**
+<br>**sudo docker volume create influxdb-volume**
+<br>**sudo docker volume create grafana-volume**
 <br>**docker volume ls**
 
 Now we need to create docker-compose.yml
@@ -53,7 +53,7 @@ Here when I wanted to check my Grafana and InfluxDB in browser
 
 I cannot connect for like a 1h. Everything indicates that everything its ok but still cannot access them. So in security group I deleted all inbound rules and added them one more time, first choosing my ip and then choosing 0.0.0.0/0... it works now, not sure why.
 
-<br>**Installing Telegraf**
+<Installing Telegraf
 <br>**sudo apt install telegraf**
 
 Configure Telegraf so he send data to InfluxDB
@@ -64,6 +64,8 @@ Configure Telegraf so he send data to InfluxDB
 Go down and find OUTPUT PLUGINS and uncomment this tow lines and put public IP from AWS in the url 
 
 ![image](https://github.com/jeti20/TelegrafAgent-InfluxDB-Grafana/assets/61649661/c2748309-cf21-4e84-b08a-68720200f1c9)
+
+also check if by default there is no Prometheus ON
 
 <br>**sudo service telegraf start**
 <br>**sudo journalctl -f -u telegraf.service**
