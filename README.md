@@ -1,4 +1,4 @@
-# TelegrafAgent-InfluxDB-Grafana
+![image](https://github.com/jeti20/Docker-InfluxDB-Grafana.Telegraf/assets/61649661/35682023-7f47-43de-b3ee-339416351b66)# TelegrafAgent-InfluxDB-Grafana
 A project showing how to create an example monitoring using EC2 instances on AWS and Telegraf Agent. On Docker.
 
 My suggestion of the architecture
@@ -51,6 +51,8 @@ Here when I wanted to check my Grafana and InfluxDB in browser
 <br>Grafana: http://Public_IPv4_address:3000
 <br>InfluxDB: http://Public_IPv4_address:8086
 
+Create account after u enter InflxuDB on port 8086. Create bucket and organization in my case i created them both called "a". After you register window with TOKEN should pops out. Copy this token somhere for later use.
+
 I cannot connect for like a 1h. Everything indicates that everything its ok but still cannot access them. So in security group I deleted all inbound rules and added them one more time, first choosing my ip and then choosing 0.0.0.0/0... it works now, not sure why.
 
 <Installing Telegraf
@@ -61,31 +63,33 @@ Configure Telegraf so he send data to InfluxDB
 <br>**cd /etc/telegraf**
 <br>**vim telegraf.config**
 
-Go down and find OUTPUT PLUGINS and uncomment this tow lines and put public IP from AWS in the url 
+Go down and find OUTPUT PLUGINS and uncomment this tow lines and put public IP from AWS in the url . Paste also TOKEN which you copied before from your website. also enter the bucket and organization name.
 
-![image](https://github.com/jeti20/TelegrafAgent-InfluxDB-Grafana/assets/61649661/c2748309-cf21-4e84-b08a-68720200f1c9)
+![image](https://github.com/jeti20/Docker-InfluxDB-Grafana.Telegraf/assets/61649661/04623c32-0720-4c3e-bd94-aacd8e3b6602)
 
-also check if by default there is no Prometheus ON
+also check if by default there is no Prometheus ON, if is put # to comment it.
 
 <br>**sudo service telegraf start**
 <br>**sudo journalctl -f -u telegraf.service**
 
-Cannot create database for telegeraf not sure why
-<br>"telegraf[2304]: 2024-03-24T19:52:55Z W! [outputs.influxdb] When writing to [http://MyIP:8086]: database "telegraf" creation failed: 401 Unauthorized"
-<br>[outputs.influxdb] E! [outputs.influxdb] Failed to write metric (will be dropped: 401 Unauthorized):
+![image](https://github.com/jeti20/Docker-InfluxDB-Grafana.Telegraf/assets/61649661/8e9d2d9b-b9eb-498d-8f7d-beaf01a0f1b0)
 
 
-niestety w momencie włączenia Telegrafa spotykam się z problemem. Po wpisaniu "sudo journalctl -f -u telegraf.service" dostaje informację, że
+After conecting telegraf with influxdb you can choose metrics to visualate in inflxudb.
 
-Unfortunately, when I turn on Telegraf, I encounter a problem. After entering "sudo journalctl -f -u telegraf.service" I get the information that
+![image](https://github.com/jeti20/Docker-InfluxDB-Grafana.Telegraf/assets/61649661/9dc81755-06f8-4e34-928d-d23804ca3e3c)
 
-telegraf[2304]: 2024-03-24T19:52:55Z W! [outputs.influxdb] When writing to [http://MyIP:8086]: database "telegraf" creation failed: 401 Unauthorized
-[outputs.influxdb] E! [outputs.influxdb] Failed to write metric (will be dropped: 401 Unauthorized):
+Go into your grafana webiste
 
-I went to myip:8086 created project, choose Telegraf, set up configuration and followed the instruction
+http://Public_IPv4_address:3000
 
-![image](https://github.com/jeti20/Docker-InfluxDB-Grafana.Telegraf/assets/61649661/08876678-ced9-4e17-845d-227965712f52)
+And add InfluxDB as a source
 
-but after the export I cannot see the exported token anywhere, I checked /.bashrc, /etc/environment not sure why it is not added there. 
-<br> I'm doing this for the first time so I'm not sure if it is problem with this token or maybe with permissions, not sure, I spend 2 days on this and dont know what to do next.
+![image](https://github.com/jeti20/Docker-InfluxDB-Grafana.Telegraf/assets/61649661/8c3341be-0256-45ce-91a9-4a3d0a1b5e25)
+
+
+![image](https://github.com/jeti20/Docker-InfluxDB-Grafana.Telegraf/assets/61649661/cf815026-3e55-4e9f-b86a-739be5176db7)
+
+
+
 
