@@ -1,4 +1,4 @@
-![image](https://github.com/jeti20/Docker-InfluxDB-Grafana.Telegraf/assets/61649661/35682023-7f47-43de-b3ee-339416351b66)# TelegrafAgent-InfluxDB-Grafana
+# TelegrafAgent-InfluxDB-Grafana
 A project showing how to create an example monitoring using EC2 instances on AWS and Telegraf Agent. On Docker.
 
 My suggestion of the architecture
